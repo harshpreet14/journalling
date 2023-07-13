@@ -1,5 +1,4 @@
-import { Benefits, Navbar } from "./components";
-import { Hero } from "./components";
+import { Benefits, Navbar, Hero } from "./components";
 
 const App = () => {
   return (

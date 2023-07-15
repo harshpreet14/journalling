@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { logo, lock, hamburgerMenu, close } from "../assets";
-import { useAuth0 } from "@auth0/auth0-react";
+import Login from './Login';
+import SignUp from './SignUp'
 
 const Navbar = () => {
-  const [loginWithRedirect, logout, user, isAuthenticated] = useAuth0();
 
   const [toggle, setToggle] = useState(false);
   const handleClick = () => setToggle(!toggle);
@@ -23,7 +23,9 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex">
-          <button
+          <Login/>
+          <SignUp/>
+          {/*<button
             className="flex justify-between items-center  bg-transparent  px-6 gap-2"
             onClick={loginWithRedirect}
           >
@@ -35,7 +37,7 @@ const Navbar = () => {
             onClick={loginWithRedirect}
           >
             Sign Up
-          </button>
+          </button> */}
         </div>
 
         <div className="md:hidden" onClick={handleClick}>

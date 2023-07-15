@@ -5,7 +5,7 @@ const userRouter = require('./routes/userRoutes');
 
 app.use(express.json());
 
-app.use('/journal-api/v1/entries/:user_id', entryRouter);
+app.use('/journal-api/v1/me/entries', entryRouter);
 
 app.use('/journal-api/v1/users', userRouter);
 

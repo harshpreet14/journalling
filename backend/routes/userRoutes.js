@@ -8,7 +8,7 @@ router
     .get(userController.getAllUsers)
 
 router
-    .route('/:user_id')
+    .route('/me')
     .get(userController.getUser)
     .patch(userController.updateUser)
     .delete(userController.deleteUser)

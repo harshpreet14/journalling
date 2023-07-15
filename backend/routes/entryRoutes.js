@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const entryController = require('./../controllers/entryController');
 
-
 router
     .route('/')
     .get(entryController.getAllEntries)
@@ -11,8 +10,8 @@ router
 
 router
     .route('/:entry_id')
-    .get(userController.getEntry)
-    .delete(userController.deleteEntry)
-    .patch(userController.updateEntry);
+    .get(entryController.getEntry)
+    .delete(entryController.deleteEntry)
+    .patch(entryController.updateEntry);
 
 module.exports = router;

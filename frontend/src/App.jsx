@@ -1,13 +1,17 @@
-import { Benefits, Navbar, Hero } from "./components";
+import { Navbar, Hero} from "./components";
+import {BrowserRouter} from "react-router-dom";
+
 
 const App = () => {
   return (
+    <BrowserRouter>
     <div>
       <Navbar />
       <Hero />
-      <Benefits />
     </div>
-  );
+    
+    </BrowserRouter>
+    )  
 };
 
 export default App;

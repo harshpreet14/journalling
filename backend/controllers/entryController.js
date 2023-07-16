@@ -87,7 +87,7 @@ exports.deleteEntry = async (req, res) => {
 };
 
 exports.getAllEntries = async (req, res) => {
-    const { user_id } = req.user; // Assuming user ID is available in the req.user object
+  const user_id = req.user._id; ; // Assuming user ID is available in the req.user object
 
     try {
         const entries = await Entry.find({ user: user_id });
@@ -107,7 +107,7 @@ exports.getAllEntries = async (req, res) => {
 };
 
 exports.deleteAllEntries = async (req, res) => {
-    const { user_id } = req.user; // Assuming user ID is available in the req.user object
+  const user_id = req.user._id; ; // Assuming user ID is available in the req.user object
   
     try {
       await Entry.deleteMany({ user: user_id });
@@ -123,8 +123,8 @@ exports.deleteAllEntries = async (req, res) => {
     }
   };
 
-exports.createEntry = async (req, res) => {
-    const { user_id } = req.user; // Assuming user ID is available in the req.user object
+ /*exports.createEntry = async (req, res) => {
+  const user_id = req.user;  // Assuming user ID is available in the req.user object
   
     try {
       const newEntry = await Entry.create({ ...req.body, user: user_id });
@@ -141,4 +141,20 @@ exports.createEntry = async (req, res) => {
       });
     }
   };
-  
+
+  const Entry = require('../models/Entry'); */
+
+// Controller for creating a new entry
+exports.createEntry = async(req, res)=> {
+  const { title, content, user } = req.body;
+
+  try {
+    const entry = await Entry.create({ title, content, user });
+
+    res.status(201).json({ entry });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to create entry' });
+  }
+}
+
+module.exports = { createEntry };

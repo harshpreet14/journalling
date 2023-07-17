@@ -10,4 +10,4 @@ app.use('/journal-api/v1/me/entries', entryRouter);
 app.use('/journal-api/v1/users', userRouter);
 
 
-module.exports = app;
+module.exports = app; 

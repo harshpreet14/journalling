@@ -1,16 +1,17 @@
-//import React from 'react';
+
 import { useAuth0 } from "@auth0/auth0-react";
 
-const SignUp = () => {
-  const { loginWithRedirect } = useAuth0();
+const Logout = () => {
+  const { logout } = useAuth0();
 
   return (
     <button
       className="px-8 py-3 rounded-md bg-[#FFC000] text-white hover:bg-yellow-500 font-bold"
-      onClick={loginWithRedirect}>
-      Sign Up
+      onClick={logout}
+    >
+      Log out
     </button>
   );
 };
 
-export default SignUp;
+export default Logout;

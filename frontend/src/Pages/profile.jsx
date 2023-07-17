@@ -1,8 +1,8 @@
-const profile = ()=>{
+const Profile = ()=> {
     return (
-        <div className="w-full h-[80px] bg-[#FFF9BA] border-b">
-            <p>hi from header</p>
+        <div className="w-full h-screen bg-[#FFF9BA] border-b">
+            <p>hi from profile</p>
             </div>
 )}
 
-export default profile;
+export default Profile;

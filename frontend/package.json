@@ -13,6 +13,7 @@
     "@auth0/auth0-react": "^2.2.0",
     "axios": "^1.4.0",
     "express-jwt": "^8.4.1",
+    "lamejs": "^1.2.1",
     "mic-recorder-to-mp3": "^2.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

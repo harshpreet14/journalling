@@ -1,5 +1,14 @@
 //import AudioRecording from './AudioRecording'
+import { useAuth0 } from "@auth0/auth0-react";
+import { useEffect } from "react";
+
+
 const Sidebar = () => {
+
+  const {user} = useAuth0();
+  
+  
+
   return (
     <div className="flex h-screen bg-[#FFF9BA]">
       <SidebarNav />
@@ -43,7 +52,7 @@ const MainContent = () => {
           <p className="text-gray-800">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
         <div className="flex items-center justify-center mt-6">
-         <button>Hiiii</button>
+       
         </div>
       </div>
     );

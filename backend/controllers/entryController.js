@@ -146,7 +146,7 @@ exports.deleteAllEntries = async (req, res) => {
 
 // Controller for creating a new entry
 exports.createEntry = async(req, res)=> {
-  const { title, content, user } = req.body;
+  const {content, user } = req.body;
 
   try {
     const entry = await Entry.create({ title, content, user });

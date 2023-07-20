@@ -2,13 +2,14 @@ import { Component } from "react";
 import MicRecorder from "mic-recorder-to-mp3";
 import axios from 'axios';
 
+const OPEN_API_KEY=''
 
 //bitRate option is set to 128, which means the audio recorder will use a bit rate of 128 kbps (kilobits per second) when encoding the recorded audio into an MP3 file.
 //Bit rate refers to the number of bits (binary digits) that are processed or transmitted per unit of time. In the context of audio recording, the bit rate determines the quality and size of the recorded audio file.
 
 const recorder = new MicRecorder({ bitRate: 128 });
 
-export default class AudioRecording extends Component {
+class AudioRecording extends Component {
   state = {
     isRecording: false, //isRecording is a boolean value that represents the current recording status.
     blobURL: "",    //A Blob (Binary Large Object) is a data type used to store binary data, such as audio or video.
@@ -86,7 +87,7 @@ export default class AudioRecording extends Component {
             data: createFormDataFromBase64(baseAudio, 'file','audio.webm',"whisper-1"),
             headers: { 
               'Content-Type': 'multipart/form-data',
-              'Authorization': 'Bearer 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'
+              'Authorization': 'Bearer ' + OPEN_API_KEY
             },
           })
             .then(function (response) {
@@ -127,4 +128,10 @@ export default class AudioRecording extends Component {
 }
 
 
-<div class="g-signin2" data-onsuccess="onSignIn"></div>
+const Audio = ()=>{
+  <div>
+    <AudioRecording/>
+  </div>
+}
+
+export default Audio;

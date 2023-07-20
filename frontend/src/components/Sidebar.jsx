@@ -1,7 +1,7 @@
 //import AudioRecording from './AudioRecording'
 import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect } from "react";
-import Audio from "./Audio";
+//import Audio from "./Audio";
 
 const Sidebar = () => {
   //const { user } = useAuth0();
@@ -55,7 +55,7 @@ const MainContent = () => {
         </p>
       </div>
       <div className="flex items-center justify-center mt-6">
-        <Audio/>
+      {/* <Audio/> */}
       </div>
     </div>
   );

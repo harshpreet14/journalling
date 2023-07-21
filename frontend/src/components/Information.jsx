@@ -2,27 +2,23 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect } from "react";
 import Audio from "./Audio";
-import axios from "axios";
+import axios from 'axios';
+
 
 const Sidebar = () => {
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
+  
 
-  async function getEntries() {
-    try {
-      const token = await getAccessTokenSilently();
-      console.log(token);
-      const response = await axios.delete('127.0.01:3000//journal-api/v1/users', {
-        headers: {
-          authorization: `Bearer ${token}`,
-        },
-      });
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
+
+  function getEntries(){
+
   }
 
-  function postEntry() {}
+  function postEntry(){
+
+  }
+
+  
 
   return (
     <div className="flex h-screen bg-[#FFF9BA]">
@@ -51,7 +47,7 @@ const SidebarNav = () => {
 };
 
 const SidebarItem = (props) => {
-  const text = props.text;
+  const text = props.text 
   return (
     <li className="w-50 bg-white p-3 ml-15 rounded-2xl border border-black mt-3 mb-3 border-opacity-50">
       <a href="#" className="text-black hover:text-gray-700">
@@ -69,10 +65,12 @@ const MainContent = () => {
         <h1 className="text-gray-800 text-2xl font-bold mb-4">
           You Entry here...
         </h1>
-        <p className="text-gray-800">Hi from main content</p>
+        <p className="text-gray-800">
+          Hi from main content 
+        </p>
       </div>
       <div className="flex items-center justify-center mt-6">
-        <Audio />
+      <Audio/>
       </div>
     </div>
   );

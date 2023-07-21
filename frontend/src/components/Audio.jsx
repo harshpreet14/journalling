@@ -60,7 +60,6 @@ class AudioRecording extends Component {
             lastModified: Date.now()
           });
         const baseAudio = await this.audioToBase64(file);
-        console.log(baseAudio);
         const createFormDataFromBase64 = (base64String, fieldName, fileName) => {
             const byteString = atob(base64String.split(',')[1]);
             const mimeType = base64String.split(';')[0].split(':')[1];
@@ -129,9 +128,12 @@ class AudioRecording extends Component {
 
 
 const Audio = ()=>{
-  <div>
+  return(
+    <div>
     <AudioRecording/>
   </div>
+  )
+  
 }
 
 export default Audio;

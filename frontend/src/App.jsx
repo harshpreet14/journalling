@@ -1,7 +1,10 @@
 import { Landing, Profile, Dashboard } from "./pages";
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
+//import {Audio} from './components/Audio';
 
 const App = () => {
+
+  
   return (
     <Router>
       <Routes>
@@ -9,9 +12,7 @@ const App = () => {
         <Route exact path='/me'element={<Dashboard/>}></Route>
         <Route exact path='/profile' element={<Profile/>}></Route>
       </Routes>
-    </Router>
-    
-     
+    </Router> 
   );
 };
 

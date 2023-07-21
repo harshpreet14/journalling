@@ -71,7 +71,9 @@ exports.updateUser = async (req, res) => {
 };
 
 exports.deleteUser = async (req, res) => {
-  const { user_id } = req.body;
+  res.status(200).send('Hi');
+
+  /*const { user_id } = req.body;
 
   try {
     const deletedUser = await User.findByIdAndDelete(user_id);
@@ -90,5 +92,5 @@ exports.deleteUser = async (req, res) => {
       status: 'error',
       message: 'Internal server error',
     });
-  }
+  }*/
 };

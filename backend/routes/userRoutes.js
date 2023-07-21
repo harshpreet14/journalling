@@ -5,8 +5,6 @@ const userController = require('./../controllers/userController')
 router
     .route('/')
     .post(userController.createUser)
-    .get(userController.getAllUsers)
-
 router
     .route('/me')
     .get(userController.getUser)

@@ -2,7 +2,7 @@ import { Component } from "react";
 import MicRecorder from "mic-recorder-to-mp3";
 import axios from 'axios';
 
-const OPEN_API_KEY=''
+const OPEN_API_KEY='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'
 
 //bitRate option is set to 128, which means the audio recorder will use a bit rate of 128 kbps (kilobits per second) when encoding the recorded audio into an MP3 file.
 //Bit rate refers to the number of bits (binary digits) that are processed or transmitted per unit of time. In the context of audio recording, the bit rate determines the quality and size of the recorded audio file.
@@ -86,7 +86,7 @@ class AudioRecording extends Component {
             data: createFormDataFromBase64(baseAudio, 'file','audio.webm',"whisper-1"),
             headers: { 
               'Content-Type': 'multipart/form-data',
-              'Authorization': 'Bearer ' + OPEN_API_KEY
+              'Authorization': 'Bearer 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'
             },
           })
             .then(function (response) {

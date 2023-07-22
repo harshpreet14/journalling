@@ -10,7 +10,7 @@ const jwtCheck = auth({
     audience: 'http://localhost:3000/journal-api/v1/users/me/entries',
     issuerBaseURL: 'https://dev-fvwp66zogc354jg0.us.auth0.com/',
     tokenSigningAlg: 'RS256'
-  });
+});
 
 
 app.use(jwtCheck);

@@ -5,7 +5,6 @@ const entryController = require('./../controllers/entryController');
 router
     .route('')
     .get(entryController.getAllEntries)
-    .delete(entryController.deleteAllEntries)
     .post(entryController.createEntry);
 
 router

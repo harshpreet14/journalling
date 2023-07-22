@@ -86,75 +86,47 @@ exports.deleteEntry = async (req, res) => {
     }
 };
 
+
 exports.getAllEntries = async (req, res) => {
-  const user_id = req.user._id; ; // Assuming user ID is available in the req.user object
-
-    try {
-        const entries = await Entry.find({ user: user_id });
-        res.status(200).json({
-        status: 'success',
-        results: entries.length,
-        data: {
-            entries,
-        },
-        });
-    } catch (err) {
-        res.status(500).json({
-        status: 'error',
-        message: 'Internal server error',
-        });
-    }
-};
-
-exports.deleteAllEntries = async (req, res) => {
-  const user_id = req.user._id; ; // Assuming user ID is available in the req.user object
-  
-    try {
-      await Entry.deleteMany({ user: user_id });
-      res.status(204).json({
-        status: 'success',
-        data: null,
-      });
-    } catch (err) {
-      res.status(500).json({
-        status: 'error',
-        message: 'Internal server error',
-      });
-    }
-  };
-
- /*exports.createEntry = async (req, res) => {
-  const user_id = req.user;  // Assuming user ID is available in the req.user object
-  
-    try {
-      const newEntry = await Entry.create({ ...req.body, user: user_id });
-      res.status(201).json({
-        status: 'success',
-        data: {
-          entry: newEntry,
-        },
-      });
-    } catch (err) {
-      res.status(400).json({
-        status: 'fail',
-        message: 'Invalid data sent!',
-      });
-    }
-  };
-
-  const Entry = require('../models/Entry'); */
-
-// Controller for creating a new entry
-exports.createEntry = async(req, res)=> {
-  const {content, user } = req.body;
+  const userId = req.headers.user_id; // Get the user_id from the headers
 
   try {
-    const entry = await Entry.create({ title, content, user });
-
-    res.status(201).json({ entry });
+    const entries = await Entry.find({ user: userId });
+    res.status(200).json({
+      status: 'success',
+      results: entries.length,
+      data: {
+          entries,
+      },
+      });
   } catch (error) {
-    res.status(500).json({ error: 'Failed to create entry' });
+    res.status(500).json({
+      status: 'error',
+      message: 'Internal server error',
+      });
   }
-}
+};
+
+
+exports.createEntry = async (req, res) => {
+  const { content } = req.body;
+  const userId = req.headers.user_id; // Get the user_id from the headers
+
+  try {
+    const newEntry = await Entry.create({ content, user: userId });
+    res.status(201).json({
+      status: 'success',
+      data: {
+        entry: newEntry,
+      }
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: 'error',
+      message: 'Invalid data sent!',
+    });
+  }
+};
+
 
 

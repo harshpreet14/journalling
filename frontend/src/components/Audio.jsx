@@ -16,7 +16,7 @@ class AudioRecording extends Component {
     transcript: ''
   };
 
-  componentDidMount() {
+  /*componentDidMount() {
     //It requests permission to access the user's microphone using the navigator.getUserMedia method.
     //*navigator.getUserMedia*: This is an API method that prompts the user to grant access to their microphone. It takes three arguments: constraints, a success callback, and an error callback.
     navigator.getUserMedia(
@@ -30,8 +30,45 @@ class AudioRecording extends Component {
         this.setState({ isBlocked: true });
       }
     );
-  }
+  }*/
 
+  componentDidMount() {
+    // Check if the modern getUserMedia method is available
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices.getUserMedia({ audio: true })
+        .then(() => {
+          console.log("Permission Granted");
+          this.setState({ isBlocked: false });
+        })
+        .catch(() => {
+          console.log("Permission Denied");
+          this.setState({ isBlocked: true });
+        });
+    } else {
+      // Fallback for older browsers that do not support mediaDevices.getUserMedia
+      navigator.getUserMedia =
+        //navigator.getUserMedia 
+        navigator.webkitGetUserMedia 
+        navigator.mozGetUserMedia ||
+        navigator.msGetUserMedia;
+  
+      if (navigator.getUserMedia) {
+        navigator.getUserMedia(
+          { audio: true },
+          () => {
+            console.log("Permission Granted");
+            this.setState({ isBlocked: false });
+          },
+          () => {
+            console.log("Permission Denied");
+            this.setState({ isBlocked: true });
+          }
+        );
+      } else {
+        console.log("getUserMedia is not supported in this browser.");
+      }
+    }
+  }
   start = () => {
     if (this.state.isBlocked) {
       console.log("Permission Denied");

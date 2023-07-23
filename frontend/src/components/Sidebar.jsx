@@ -18,6 +18,7 @@ const Sidebar = () => {
 
 const SidebarNav = () => {
   const { user, getAccessTokenSilently } = useAuth0();
+  console.log(user);
   const [entries, setEntries] = useState([]);
 
   useEffect(() => {
@@ -25,6 +26,7 @@ const SidebarNav = () => {
     const fetchUserEntries = async () => {
       try {
         const token = await getAccessTokenSilently();
+        console.log(token);
         const response = await fetch(
           "http://localhost:3000/journal-api/v1/entries",
           {
@@ -97,9 +99,9 @@ const MainContent = () => {
             Authorization: `Bearer ${token}`,
             user_id: user.sub,
           },
-          body: {
+          body: JSON.stringify({
             content: "This is my first entry ever.",
-          },
+          }),
         }
       );
 

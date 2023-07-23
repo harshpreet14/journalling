@@ -8,7 +8,6 @@ import axios from "axios";
 
 const Sidebar = () => {
   const {isAuthenticated} = useAuth0();
-
   
     return (
       <div className="flex h-screen bg-[#FFF9BA]">
@@ -21,6 +20,7 @@ const Sidebar = () => {
 };
 
 const SidebarNav = () => {
+
   const { user, getAccessTokenSilently } = useAuth0();
   const [entries, setEntries] = useState([]);
 
@@ -110,7 +110,7 @@ const MainContent = () => {
         console.error('Error posting entries:', error.message);
       }
   }
-  
+
   return (
     <div className="flex-grow w-1100 bg-white p-6 ml-10 mr-10 rounded-2xl border-2 border-black mt-20 mb-10 flex flex-col justify-between">
       {/* Main content */}

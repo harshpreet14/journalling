@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <Auth0Provider
       domain="dev-fvwp66zogc354jg0.us.auth0.com"
       clientId="xTVtdKTkCmxjMZxAXyjb1tI36tk5QErl"
-      redirectUri={window.location.origin}
+      redirect_uri ={window.location.origin}
       audience="http://localhost:3000/journal-api/v1/users/me/entries"
       scope="openid profile email"
     >

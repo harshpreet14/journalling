@@ -14,7 +14,8 @@ const entrySchema = new mongoose.Schema({
     default: Date.now,
   },
   user: {
-    type: String
+    type: String,
+    required: true
   }
 });
 

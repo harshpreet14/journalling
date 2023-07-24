@@ -3,7 +3,7 @@ const router = express.Router();
 const entryController = require('./../controllers/entryController');
 
 router
-    .route('')
+    .route('/')
     .get(entryController.getAllEntries)
     .post(entryController.createEntry);
 

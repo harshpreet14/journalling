@@ -110,7 +110,7 @@ exports.getAllEntries = async (req, res) => {
 
 exports.createEntry = async (req, res) => {
   const { content } = req.body;
-  const userId = req.headers.user_id; // Get the user_id from the headers
+  const userId = req.headers.user; // Get the user_id from the headers
 
   try {
     const newEntry = await Entry.create({ content, user: userId });

@@ -31,9 +31,9 @@ const verifyJwt = jwt({
 
 app.use(express.json());
 
-app.use('/journal-api/v1/me/entries', entryRouter);
+app.use('/journal/me/entries', entryRouter);
 
-app.use('/journal-api/v1/users', userRouter);
+app.use('/journal/users', userRouter);
 
 
 module.exports = app; 

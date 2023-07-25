@@ -88,7 +88,7 @@ exports.deleteEntry = async (req, res) => {
 
 
 exports.getAllEntries = async (req, res) => {
-  const userId = req.headers.user_id; // Get the user_id from the headers
+  const userId = req.headers.user; // Get the user_id from the headers
 
   try {
     const entries = await Entry.find({ user: userId });

@@ -20,7 +20,7 @@ const jwks = require('jwks-rsa');
     algorithms: ['RS256']
 })*/
 
-app.use(cors);
+app.use(cors());
 
 app.use(express.json());
 

@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 //import {Audio} from './components/Audio';
 
 const App = () => {
-
-  
   return (
     <Router>
       <Routes>

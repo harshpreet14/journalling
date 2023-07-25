@@ -3,15 +3,12 @@ const app = express();
 const entryRouter = require('./routes/entryRoutes');
 const userRouter = require('./routes/userRoutes');
 const cors = require('cors');
-app.use(cors);
-
-/*const axios = require('axios');
+const axios = require('axios');
 const { expressjwt: jwt }= require('express-jwt');
 const jwks = require('jwks-rsa');
 
 
-
-const verifyJwt = jwt({
+/*const verifyJwt = jwt({
     secret: jwks.expressJwtSecret({
         cache: true,
         rateLimit: true,
@@ -23,13 +20,11 @@ const verifyJwt = jwt({
     algorithms: ['RS256']
 })*/
 
-
-
-//app.use(verifyJwt);
-
-
+app.use(cors);
 
 app.use(express.json());
+
+//app.use(verifyJwt);
 
 app.use('/journal/me/entries', entryRouter);
 

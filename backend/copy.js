@@ -1,5 +1,4 @@
 
-
 const express = require('express');
 const app = express();
 const entryRouter = require('./routes/entryRoutes');

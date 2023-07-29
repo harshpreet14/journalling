@@ -27,14 +27,3 @@ Currently, I am working on AI integration, to perform sentiment analysis on the 
 
 - **Cloud Database**: MongoDB Atlas is used as the cloud database, offering scalability, performance, and reliable data storage for the 'Journaling App'.
 
-## Installation
-
-To set up and run the 'Journaling App' on your local environment, follow these steps:
-
-1. Clone the repository to your local machine.
-
-2. Install the required dependencies using npm or yarn. Also install Tailwind CSS and configure properly.
-
-3. Configure the environment variables for Auth0 and MongoDB Atlas to enable authentication and database connection.
-
-4. Run the application using the npm or yarn start command.

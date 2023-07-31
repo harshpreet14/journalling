@@ -64,3 +64,5 @@ Replace the following environment variables in config.env files
 7. `Run frontend`: Start the frontend server by running the following command and access the application on `http://localhost:5173/`:
     
 ```npm run dev```
+## `Future` 
+Integrating ChatGPT to analyze the journal entries, and provide insights to manage triggers and monitor mood fluctuations would be another interesting feature. 

@@ -17,7 +17,7 @@ Currently, I am working on AI integration, to perform sentiment analysis on the 
 
 2. **OpenAI Whisper Integration**: To enhance the user experience, the 'Journaling App' leverages OpenAI's  Whisper model for speech-to-text transcription. This empowers users to effortlessly convert their voice notes into text, making it easy to review and analyze their daily entries.
 
-## Tech Stack
+## ```Tech Stack```
 
 - **Frontend**: The frontend is built using React, a powerful JavaScript library for creating dynamic and interactive user interfaces. The intuitive and responsive design ensures a seamless user experience.
 
@@ -27,3 +27,4 @@ Currently, I am working on AI integration, to perform sentiment analysis on the 
 
 - **Cloud Database**: MongoDB Atlas is used as the cloud database, offering scalability, performance, and reliable data storage for the 'Journaling App'.
 
+##Local Installation Guide

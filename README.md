@@ -31,8 +31,8 @@ Currently, I am working on AI integration, to perform sentiment analysis on the 
 Replace the following environment variables in config.env files
 1. `OPEN_AI_KEY`: Use your OpenAI key to access the Whisper API for speech-to-text transcription. 
 2. `DATABASE`: Connect to your own MONGODB Atlas cloud database. Follow the steps here - https://hevodata.com/learn/mongodb-atlas-nodejs/
-3. `Auth0 Application`:
-4. `Auth0 API`: 
+3. `Auth0 Application`: Follow the steps to create an Auth0 application - https://auth0.com/docs/get-started/auth0-overview/create-applications
+4. `Auth0 API`: Follow the steps to create Auth0 API to protect your backend, and replace variables like audience, token-issuer and signing algorithm- https://auth0.com/docs/get-started/auth0-overview/set-up-apis
  
 ## `Local Installation Guide`
 

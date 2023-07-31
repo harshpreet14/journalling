@@ -39,21 +39,22 @@ Currently, I am working on AI integration, to perform sentiment analysis on the 
 
 ### Follow the steps below:
 1. `Clone the repository`: Open the terminal or command prompt and navigate to the directory where you want to store the project. Then, run the following command to clone the repository:
-
 ```git clone https://github.com/harshpreet/journaling.git```
-2. `Navigate to the backend`: After the repository is cloned, navigate to the backend directory using the following command:
 
+3. `Navigate to the backend`: After the repository is cloned, navigate to the backend directory using the following command:
 ```cd backend```
+
 3. `Install dependencies`: Once you’re inside the project directory, run the following command to install the dependencies required for the project:
 ```npm install```
+
 4. `Run backend `: Start the backend server by running the following command:
-   
 ```nodemon server.js```
-5. `Navigate to the frontend`: After starting the backend server, navigate to the frontend directory using the following commands:
-    
+
+5. `Navigate to the frontend`: After starting the backend server, navigate to the frontend directory using the following commands:  
 ```cd..```
 
 ```cd frontend```
+
 6. ```Install dependencies```: Repeat step 3
     
 7. `Run frontend`: Start the frontend server by running the following command and access the application on `http://localhost:5173/`:

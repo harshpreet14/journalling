@@ -28,6 +28,7 @@ Currently, I am working on AI integration, to perform sentiment analysis on the 
 - **Cloud Database**: MongoDB Atlas is used as the cloud database, offering scalability, performance, and reliable data storage for the 'Journaling App'.
 
 ## `Local Installation Guide`
+
 ### `Prerequisites:`
 1. Node.js: Install node version (v 18.0.2) on your local environment.
    

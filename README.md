@@ -27,4 +27,4 @@ Currently, I am working on AI integration, to perform sentiment analysis on the 
 
 - **Cloud Database**: MongoDB Atlas is used as the cloud database, offering scalability, performance, and reliable data storage for the 'Journaling App'.
 
-##Local Installation Guide
+## Local Installation Guide

@@ -1,4 +1,4 @@
-# Journaling App
+# `Journaling App`
 I have witnessed the struggles of friends, family, and even myself when it comes to mental health. Many of us have turned to therapy, and one preliminary method that most therapists recommend is  journaling. However, traditional journaling has its limitations, which became apparent to me and those close to me.
 
 The first challenge we encountered with traditional journaling is the difficulty of capturing our thoughts and emotions in real-time. The speed at which our minds generate thoughts surpasses our ability to write them down. It's frustrating when we can't fully express ourselves and capture the essence of our experiences.
@@ -11,7 +11,7 @@ It enables users to record voice notes seamlessly and utilizes OpenAI's advanced
 
 Currently, I am working on AI integration, to perform sentiment analysis on the text using the powerful ChatGPT API. This analysis would help you identify triggers, patterns, and fluctuations in your mood throughout the day.
 
-## Features
+## ```Features```
 
 1. **Voice Notes Recording**: Users can effortlessly record voice notes throughout the day, capturing their thoughts and emotions in real-time.
 

@@ -28,7 +28,11 @@ Currently, I am working on AI integration, to perform sentiment analysis on the 
 - **Cloud Database**: MongoDB Atlas is used as the cloud database, offering scalability, performance, and reliable data storage for the 'Journaling App'.
 
 ## `Environment Variables`
-1. `OPEN_AI_KEY`
+Replace the following environment variables in config.env files
+1. `OPEN_AI_KEY`: Use your OpenAI key to access the Whisper API for speech-to-text transcription. 
+2. `DATABASE`: Connect to your own MONGODB Atlas cloud database. Follow the steps here - https://hevodata.com/learn/mongodb-atlas-nodejs/
+3. `Auth0 Application`:
+4. `Auth0 API`: 
  
 ## `Local Installation Guide`
 

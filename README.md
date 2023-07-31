@@ -37,7 +37,7 @@ Replace the following environment variables in config.env files
 ## `Local Installation Guide`
 
 ### `Prerequisites:`
-1. Node.js: Install node version (v 18.0.2) on your local environment.
+1. Node.js: Install node version (v18.16.0) on your local environment.
    
 2. Git: Download the latest version of Git from their official website.  
 

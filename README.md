@@ -11,13 +11,13 @@ It enables users to record voice notes seamlessly and utilizes OpenAI's advanced
 
 Currently, I am working on AI integration, to perform sentiment analysis on the text using the powerful ChatGPT API. This analysis would help you identify triggers, patterns, and fluctuations in your mood throughout the day.
 
-## ```Features```
+## `Features`
 
 1. **Voice Notes Recording**: Users can effortlessly record voice notes throughout the day, capturing their thoughts and emotions in real-time.
 
 2. **OpenAI Whisper Integration**: To enhance the user experience, the 'Journaling App' leverages OpenAI's  Whisper model for speech-to-text transcription. This empowers users to effortlessly convert their voice notes into text, making it easy to review and analyze their daily entries.
 
-## ```Tech Stack```
+## `Tech Stack`
 
 - **Frontend**: The frontend is built using React, a powerful JavaScript library for creating dynamic and interactive user interfaces. The intuitive and responsive design ensures a seamless user experience.
 
@@ -27,4 +27,11 @@ Currently, I am working on AI integration, to perform sentiment analysis on the 
 
 - **Cloud Database**: MongoDB Atlas is used as the cloud database, offering scalability, performance, and reliable data storage for the 'Journaling App'.
 
-## Local Installation Guide
+## `Local Installation Guide`
+### `Prerequisites:`
+1. Node.js: Install node version (v 18.0.2) on your local environment.
+   
+2. Git: Download the latest version of Git from their official website.  
+
+### Follow the steps below:
+1. `Clone the repository`: 

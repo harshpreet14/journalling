@@ -1,4 +1,4 @@
-import { Landing, Profile, Dashboard } from "./pages";
+import { Landing, Profile, Dashboard } from "./Pages";
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 //import {Audio} from './components/Audio';
 

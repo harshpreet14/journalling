@@ -11,6 +11,8 @@ It enables users to record voice notes seamlessly and utilizes OpenAI's advanced
 
 Currently, I am working on AI integration, to perform sentiment analysis on the text using the powerful ChatGPT API. This analysis would help you identify triggers, patterns, and fluctuations in your mood throughout the day.
 
+<img width="959" alt="image" src="https://github.com/harshpreet14/journalling/assets/114172812/9f2108f1-cd84-41e0-8070-1f40461b9911">
+
 ## `Features`
 
 1. **Voice Notes Recording**: Users can effortlessly record voice notes throughout the day, capturing their thoughts and emotions in real-time.

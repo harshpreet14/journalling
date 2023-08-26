@@ -159,10 +159,10 @@ class AudioRecording extends Component {
 
   render() { 
     return (
-      <div className="flex">
+      <div className="flex flex-row">
         <button onClick={this.start} disabled={this.state.isRecording}>
           {" "}
-          ⏺️
+          ⏺
         </button>
         <button onClick={this.stop} disabled={!this.state.isRecording}>
           ⏹️
@@ -184,8 +184,7 @@ const Transcript = () => {
 }
 const Audio = () => {
   return (
-    <div>
-      console.log(transcript)
+    <div >
       <AudioRecording/>
     </div>
   );

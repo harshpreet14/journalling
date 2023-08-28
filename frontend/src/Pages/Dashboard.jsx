@@ -1,9 +1,9 @@
-import Sidebar from "../components/Sidebar";
+import Interface from "../components/Interface";
 
 const Dashboard = ()=>{
     return(
         <>
-        <Sidebar/>
+        <Interface/>
         </> 
     )
 }

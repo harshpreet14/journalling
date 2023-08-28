@@ -175,13 +175,7 @@ class AudioRecording extends Component {
 }
 
 
-const Transcript = () => {
-  return(
-    <div>
-      <textarea></textarea>
-    </div>
-  )
-}
+
 const Audio = () => {
   return (
     <div >

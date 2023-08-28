@@ -10,7 +10,7 @@ router
 router
     .route('/users/:userId/entries/:entryId')
     .get(entryController.getEntry) // Get an entry by ID
-    .put(entryController.updateEntry) // Update an entry by ID
+    .patch(entryController.updateEntry) // Update an entry by ID
     .delete(entryController.deleteEntry); // Delete an entry by ID
 
 router

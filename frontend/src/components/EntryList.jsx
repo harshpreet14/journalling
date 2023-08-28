@@ -1,11 +1,15 @@
 import { useAuth0 } from "@auth0/auth0-react";
-
+import Logout from "./Logout";
 
 const EntryList = () => {
     
     return (
         <>
+        <div className='flex flex-row justify-between'>
         <div className='text-xl mb-4 font-bold text-start'>Your journals</div>
+        <Logout/>
+        </div>
+       
         <Entry/>
         <Entry/>
         <Entry/>

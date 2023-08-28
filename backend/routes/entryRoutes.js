@@ -3,14 +3,17 @@ const router = express.Router();
 const entryController = require('./../controllers/entryController');
 
 router
-    .route('/')
-    .get(entryController.getAllEntries)
-    .post(entryController.createEntry);
+    .route('/users/:userId/entries')
+    .get(entryController.getAllEntries) // Get all entries for a user
+    .post(entryController.createEntry); // Create a new entry for a user
 
 router
-    .route('/:entry_id')
-    .get(entryController.getEntry)
-    .delete(entryController.deleteEntry)
-    .patch(entryController.updateEntry);
+    .route('/users/:userId/entries/:entryId')
+    .get(entryController.getEntry) // Get an entry by ID
+    .put(entryController.updateEntry) // Update an entry by ID
+    .delete(entryController.deleteEntry); // Delete an entry by ID
+
+router
+    .get('/users/:userId/entries/date/:date', entryController.getEntriesByDate); // Get entries by date for a user
 
 module.exports = router;

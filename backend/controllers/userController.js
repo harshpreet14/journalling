@@ -18,10 +18,10 @@ exports.createUser = async (req, res) => {
 };
 
 exports.getUser = async (req, res) => {
-  const { user_id } = req.body;
+  const { userId } = req.params;
 
   try {
-    const user = await User.findById(user_id);
+    const user = await User.findById(userId);
     if (!user) {
       return res.status(404).json({
         status: 'fail',
@@ -43,10 +43,10 @@ exports.getUser = async (req, res) => {
 };
 
 exports.updateUser = async (req, res) => {
-  const { user_id } = req.body;
+  const { userId } = req.params;
 
   try {
-    const updatedUser = await User.findByIdAndUpdate(user_id, req.body, {
+    const updatedUser = await User.findByIdAndUpdate(userId, req.body, {
       new: true,
       runValidators: true,
     });
@@ -71,12 +71,10 @@ exports.updateUser = async (req, res) => {
 };
 
 exports.deleteUser = async (req, res) => {
-  res.status(200).send('Hi');
-
-  /*const { user_id } = req.body;
+  const { userId } = req.params;
 
   try {
-    const deletedUser = await User.findByIdAndDelete(user_id);
+    const deletedUser = await User.findByIdAndDelete(userId);
     if (!deletedUser) {
       return res.status(404).json({
         status: 'fail',
@@ -92,5 +90,5 @@ exports.deleteUser = async (req, res) => {
       status: 'error',
       message: 'Internal server error',
     });
-  }*/
+  }
 };

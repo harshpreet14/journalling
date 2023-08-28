@@ -3,12 +3,12 @@ const router = express.Router();
 const userController = require('./../controllers/userController')
 
 router
-    .route('/')
-    .post(userController.createUser)
+    .post('/users', userController.createUser); // Create a new user
+
 router
-    .route('/me')
-    .get(userController.getUser)
-    .patch(userController.updateUser)
-    .delete(userController.deleteUser)
+    .route('/users/:userId')
+    .get(userController.getUser) // Get a user by ID
+    .patch(userController.updateUser) // Update a user by ID
+    .delete(userController.deleteUser); // Delete a user by ID
 
 module.exports = router;

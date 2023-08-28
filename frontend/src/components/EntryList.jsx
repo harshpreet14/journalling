@@ -1,10 +1,11 @@
-//import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 const EntryList = () => {
+    
     return (
         <>
-        <div className='text-xl mb-4 font-bold '>Your journals</div>
+        <div className='text-xl mb-4 font-bold text-start'>Your journals</div>
         <Entry/>
         <Entry/>
         <Entry/>

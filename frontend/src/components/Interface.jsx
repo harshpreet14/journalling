@@ -143,8 +143,7 @@ const Sidebar = () => {
 
 
 const EntryList = (props) => {
-   const entries = props.entries;
-   console.log(entries);
+   
 
     return (
         <>
@@ -152,7 +151,7 @@ const EntryList = (props) => {
         <div className='text-xl mb-4 font-bold text-start'>Your journals</div>
         <Logout/>
         </div>
-        {entries.map((entry) => <Entry entry={entry} key={entry._id}/>)}
+       
         <Entry/>
         <Entry/>
         <Entry/>
@@ -164,8 +163,7 @@ const EntryList = (props) => {
 
 
 const Entry = (props) => {
-  const entry = props.entry;
-  console.log(entry);
+  
     return (
         <div className="flex flex-col border border-yellow-400 gap-y-3 h-20 rounded-xl  mb-4 px-4 py-2 bg-[#faefb6] ">
             <div className="flex flex-row  justify-between font-bold  text-sm">
@@ -173,7 +171,7 @@ const Entry = (props) => {
                <div >10.40am</div>
             </div>
             <div className="text-xs">
-           {entry}
+           Walking my dogs...
             </div>
         </div>
         )

@@ -23,6 +23,8 @@ const Sidebar = () => {
  
   const addUser = async () => {
     console.log('Adding user...');
+    console.log('user', user);
+    console.log('isAuthenticated', isAuthenticated);
     if (user && isAuthenticated) {
       try {
         const token = await getAccessTokenSilently();

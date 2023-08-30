@@ -1,15 +1,18 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const entryRouter = require('./routes/entryRoutes');
 const userRouter = require('./routes/userRoutes');
-const cors = require('cors');
+const dotenv = require('dotenv');
 const { auth } = require('express-oauth2-jwt-bearer');
 
+dotenv.config({path : './config.env'});
+
 const jwtCheck = auth({
-    audience: 'http://localhost:3000/journal-api/v1/users/me/entries',
-    issuerBaseURL: 'https://dev-fvwp66zogc354jg0.us.auth0.com/',
-    tokenSigningAlg: 'RS256'
-  });
+    audience: process.env.AUDIENCE,
+    issuerBaseURL: process.env.ISSUER,
+    tokenSigningAlg: process.env.ALGO
+});
 
 
 app.use(cors());

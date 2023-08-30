@@ -1,6 +1,4 @@
 
-
-
 const Analysis = () => {
     return (
       <div className="min-h-screen rounded-tl-3xl rounded-bl-3xl w-4/12 bg-[#ffffd6]">

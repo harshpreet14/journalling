@@ -1,6 +1,6 @@
 
 import Audio from "./Audio";
-const Main = () => {
+const Transcript = () => {
   return (
     <div className="rounded-3xl w-4/12 bg-[#e0d9fc]">
       <div className="flex flex-col m-3 h-5/6 mt-6 mb-10 rounded-3xl  p-3 overflow-hidden">
@@ -15,4 +15,4 @@ const Main = () => {
 };
 
 
-export default Main;
+export default Transcript;

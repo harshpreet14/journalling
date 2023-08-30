@@ -42,7 +42,7 @@ exports.getAllEntries = async (req, res) => {
     } catch (error) {
         res.status(500).json({
             status: 'error',
-            message: 'Internal server error',
+            message: error.message,
         });
     }
 };
@@ -109,10 +109,10 @@ exports.deleteEntry = async (req, res) => {
 
 
 exports.getAllEntries = async (req, res) => {
-    const userId = req.headers.user; // Get the user_id from the headers
-
+    const {userId} = req.params; // Get the user_id from the headers
+    
     try {
-        const entries = await Entry.find({user: userId});
+        const entries = await Entry.find({user_id: userId});
         res.status(200).json({
             status: 'success',
             results: entries.length,
@@ -123,7 +123,7 @@ exports.getAllEntries = async (req, res) => {
     } catch (error) {
         res.status(500).json({
             status: 'error',
-            message: 'Internal server error',
+            message: error.message,
         });
     }
 };

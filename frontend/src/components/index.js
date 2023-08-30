@@ -1,8 +1,8 @@
 import Navbar from "./Navbar";
 import Hero from "./Hero";
 import Audio from './Audio';
-import Main from './Transcript';
+import Transcript from './Transcript';
+import { UserIdProvider } from './UserIdContext';
 
 
-
-export {Navbar, Hero, Audio, Main}
+export {Navbar, Hero, Audio, Transcript, UserIdProvider}

@@ -41,8 +41,8 @@ const Sidebar = () => {
             },
           }
         );
-        console.log('Response:', response);
-        const user_id = response.data.data.user._id;
+        console.log('Response for addUser:', response);
+        const user_id =  response.data.data.user._id;
         setUserId(user_id);
         console.log(userId);
         console.log(user_id);
@@ -68,7 +68,7 @@ const Sidebar = () => {
             },
           }
         );
-        console.log('Response:', response);
+        console.log('Response for getEntries:', response);
         const entries_data = response.data.data.entries;
         setEntries(entries_data);
         console.log(entries_data);
@@ -90,9 +90,33 @@ const Sidebar = () => {
     console.log("hi")
   }
 
-  const addEntry = async() =>{
-    console.log("hi")
-  }
+  const addEntry = async () => {
+    console.log('Adding entry...');
+    if (user && isAuthenticated) {
+      try {
+        const token = await getAccessTokenSilently();
+        console.log('Token:', token);
+        const response = await axios.post(
+          API_BASE + '/users/'+ userId + '/entries',
+          {
+            transcript:"hi"
+          },
+          {
+            headers: {
+              'Authorization': `Bearer ${token}`,
+              'Content-Type': 'application/json',
+            },
+          }
+        );
+        console.log('Response:', response);
+        const newEntry =  response.data.data.entries;
+        console.log(newEntry);
+        console.log
+        } catch (error) {
+        console.error('Error:', error);
+      }
+    }
+  };
 
 
   useEffect(() => {
@@ -101,44 +125,34 @@ const Sidebar = () => {
     getEntries();
   }, []);
 
-    return (
-      <>
-        <div className="flex flex-row gap-3 p-4px bg-[#ffffff]">
-          <div className="rounded-tr-3xl  rounded-br-3xl w-4/12 bg-[#ffffd6]">
-            <div className="flex flex-col m-3 h-5/6 mt-6 mb-10 rounded-tr-3xl rounded-br-3xl p-3 overflow-hidden">
-              <div className='flex flex-row justify-between'>
-                <div className='text-xl mb-4 font-bold text-start'>Your journals</div>
-                  <Logout/>
-                  </div>
-                        <div className="flex flex-col border border-yellow-400 gap-y-3 h-20 rounded-xl  mb-4 px-4   py-2 bg-[#faefb6] ">
-                          <div className="flex flex-row  justify-between font-bold  text-sm">
-                               <div >Title</div>
-                               <div >10.40 am</div>
-                               </div>
-                             <div className="text-xs">
-                               Walking my dogs made me feel...
-                          </div>
-                        </div>
-                  </div>
+  return (
+    <>
+      <div className="flex flex-row gap-3 p-4px bg-[#ffffff]">
+        <div className="rounded-tr-3xl  rounded-br-3xl w-4/12 bg-[#ffffd6]">
+          <div className="flex flex-col m-3 h-5/6 mt-6 mb-10 rounded-tr-3xl rounded-br-3xl p-3 overflow-hidden">
+            <EntryList entries={entries}/>
           </div>
-          <Transcript />
-          <Analysis />
         </div>
-      </>
-    );
+        <Transcript />
+        <Analysis />
+      </div>
+    </>
+  );
 } 
   
 
 
-  const EntryList = () => {
-   
+const EntryList = (props) => {
+   const entries = props.entries;
+   console.log(entries);
+
     return (
         <>
         <div className='flex flex-row justify-between'>
         <div className='text-xl mb-4 font-bold text-start'>Your journals</div>
         <Logout/>
         </div>
-       
+        {entries.map((entry) => <Entry entry={entry} key={entry._id}/>)}
         <Entry/>
         <Entry/>
         <Entry/>
@@ -149,15 +163,17 @@ const Sidebar = () => {
 };
 
 
-const Entry = () => {
+const Entry = (props) => {
+  const entry = props.entry;
+  console.log(entry);
     return (
         <div className="flex flex-col border border-yellow-400 gap-y-3 h-20 rounded-xl  mb-4 px-4 py-2 bg-[#faefb6] ">
             <div className="flex flex-row  justify-between font-bold  text-sm">
                <div >Title</div>
-               <div >10.40 am</div>
+               <div >10.40am</div>
             </div>
             <div className="text-xs">
-            Walking my dogs made me feel...
+           {entry}
             </div>
         </div>
         )

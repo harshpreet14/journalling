@@ -13,7 +13,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     clientId="xTVtdKTkCmxjMZxAXyjb1tI36tk5QErl"
     authorizationParams={{
       redirect_uri: window.location.origin,
-      audience:"http://localhost:3000/journal-api/v1/users/me/entries"
+      audience:"http://localhost:3000/journal-api/v1/users/me/entries",
+      useRefreshTokens: true
     }}
     scope="openid profile email"
     >

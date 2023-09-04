@@ -1,8 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import Audio from "./Audio";
 import axios from "axios";
-import { useEffect, useState, useContext } from "react";
-import Logout from "./Logout";
+import { useEffect, useContext } from "react";
 import { UserIdContext} from "./UserIdContext"
 import Transcript from "./Transcript";
 import Analysis from "./Insights";
@@ -17,8 +15,7 @@ const Sidebar = () => {
   const { userId, setUserId } = useContext(UserIdContext);
 
  
-  const addUser = async () => {
-    console.log('Adding user...');
+  const addUser = async (userId) => {
     console.log('user', user);
     console.log('isAuthenticated', isAuthenticated);
     if (user && isAuthenticated) {
@@ -55,16 +52,14 @@ const Sidebar = () => {
 
   useEffect(() => {
     console.log("Checking setUserId: " , setUserId );
-    addUser();
-    
-      
-  }, [setUserId]);
+    addUser(userId);
+  }, [userId]);
 
   return (
     <>
       <div className="flex flex-row gap-3 p-4px bg-[#ffffff]">
-        <div className="rounded-tr-3xl  rounded-br-3xl w-4/12 bg-[#ffffd6]">
-          <div className="flex flex-col m-3 h-5/6 mt-6 mb-10 rounded-tr-3xl rounded-br-3xl p-3 overflow-hidden">
+        <div className="rounded-tr-3xl  rounded-br-3xl w-4/12  border border-yellow-600 bg-[#ffffff]">
+          <div className="flex flex-col m-3 h-5/6 mt-6  mb-10 rounded-tr-3xl rounded-br-3xl p-3 overflow-hidden">
             <EntryList/>
           </div>
         </div>

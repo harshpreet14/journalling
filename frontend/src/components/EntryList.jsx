@@ -1,17 +1,19 @@
 import { useEntryId } from "./EntryIdContext";
 import Logout from "./Logout";
-import { UserIdContext} from "./UserIdContext";
+import { UserIdContext} from "./UserIdContext"
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
-const API_BASE = "http://127.0.01:3000/api/journal-ease"
 import { useState, useEffect, useContext } from "react";
+
+const API_BASE = "http://127.0.01:3000/api/journal-ease"
+
 
 const EntryList = () => {
 
-  const { userId, setUserId } = useContext(UserIdContext);
+    const { userId } = useContext(UserIdContext);
     const { getAccessTokenSilently} = useAuth0();
     const [entries, setEntries] = useState([]);
-    const {popupActive, setPopupActive} = useState(false);
+    const [popupActive, setPopupActive] = useState(false);
     const {newEntry, setNewEntry} = useState("")
     
 
@@ -40,8 +42,7 @@ const EntryList = () => {
           }
       };
 
-      const getEntries = async() =>{
-        console.log('Getting entries...');
+      const getEntries = async(userId) =>{
           try {
             const token = await getAccessTokenSilently();
             console.log('Token:', token);
@@ -65,8 +66,8 @@ const EntryList = () => {
 
       useEffect(() => {
         console.log('useEffect called');
-        getEntries();
-      }, []);
+        getEntries(userId);
+      }, [userId]);
 
 
     return (
@@ -99,7 +100,7 @@ const Entry = ({entry}) => {
 
     const {entryId, setEntryId} = useEntryId();
     const { getAccessTokenSilently} = useAuth0();
-    const { userId, setUserId } = useUserId();
+    const { userId, setUserId } = useContext(UserIdContext);
     const [entries, setEntries] = useState([]);
 
     const deleteEntry =async() =>{
@@ -138,7 +139,15 @@ const Entry = ({entry}) => {
             {console.log('Entry id', entryId)}
             <div className="flex flex-row  justify-between font-bold  text-sm">
                <div >{entry.title}</div>
-               <div >{entry.updated_at}</div>
+               <div >{new Date(entry.updated_at).toLocaleString('en-IN', {
+          timeZone: 'Asia/Kolkata',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+        })}</div>
             </div>
             <div className="flex flex-row  justify-between">
             <div className="text-xs">

@@ -44,7 +44,7 @@ const Transcript = () => {
     <div className="rounded-3xl w-4/12  border border-purple-700 bg-[#ffffff]">
       <div className="flex flex-col m-3 h-5/6 mt-6 mb-10 rounded-3xl  p-3 overflow-hidden">
         <p className="text-xl mb-4 font-bold "> Record here...</p>
-        <div className="text-sm border border-purple-700 p-2  mb-2 h-full rounded-xl bg-[#cdc1fc] shadow-xl  hover:bg-[#bbacf4]">
+        <div className="text-sm border border-purple-700 p-5  mb-2 h-full rounded-xl bg-[#cdc1fc] shadow-xl  hover:bg-[#bbacf4]">
           {transcript }
         </div>
       </div>

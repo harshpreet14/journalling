@@ -163,7 +163,7 @@ const Entry = ({entry, entries, setEntries}) => {
         })}</div>
             </div>
             <div className="flex flex-row  justify-between">
-            <div className="text-xs">
+            <div className="text-xs truncate">
             {entry.transcript}
             </div>
             <div>

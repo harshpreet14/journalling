@@ -1,10 +1,11 @@
 import { useEntryId } from "./EntryIdContext";
 import Logout from "./Logout";
-import { UserIdContext} from "./UserIdContext"
+import { UserIdContext} from "./UserIdContext";
+import { useSelectedentryId } from "./SelectedEntryIdContext";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import { useState, useEffect, useContext } from "react";
-
+import Audio from "./Audio";
 const API_BASE = "http://127.0.01:3000/api/journal-ease"
 
 
@@ -69,25 +70,32 @@ const EntryList = () => {
         getEntries(userId);
       }, [userId]);
 
+      const handleCreateEntry =(e)=>{
+        e.preventDefault();
+        addEntry();
+        setNewEntry(newEntry)
+        setEntries(...entries,newEntry)
+    }
 
     return (
         <>
-        <div className='flex flex-row justify-between'>
+        <div className='flex flex-row justify-between '>
         <div className='text-xl mb-4 font-bold text-start'>Your journals</div>
         <Logout/>  
         </div>
-        {entries.map((entry) => (<Entry entry={entry} key={entry._id} />))}
+        {entries.map((entry) => (<Entry entry={entry} key={entry._id} entries={entries} setEntries={setEntries}/>))}
         <div>
-        <button className='text-sm p-0.5 border bg-[#fbe98f] border-yellow-400 rounded-md justify-end cursor-pointer' onClick={() => setPopupActive(true)}>➕</button>
+        <button className='text-sm p-0.5 border bg-[#fbe98f] border-yellow-400 rounded-md justify-end cursor-pointer  hover:bg-[#f9e373]' onClick={() => setPopupActive(true)}>➕</button>
         </div>
 
 			{ popupActive ? (
 				<div className="fixed inset-0 bg-black bg-opacity-20 backdrop-blur-sm flex justify-center items-center ">
-					<div className="absolute top-16 right-16 w-20 h-20 text-2xl text-dark cursor-pointer" onClick={() => setPopupActive(false)}>X</div>
-					<div className="content">
-						<h3 className="text-dark mb-4 font-normal uppercase">Add Entry</h3>
+					<div className="absolute top-16 right-16 w-20 h-20 text-2xl text-dark cursor-pointer" onClick={() => setPopupActive(false)}>❌</div>
+					<div className="bg-[#efecec] h-3/6 w-2/6 p-5 border border-purple-600 rounded-lg justify-center">
+						<h3 className="text-dark mb-4 text-lg font-bold">Record your journal!</h3>
 						<input type="text" className="appearance-none outline-none border-none bg-white p-4 rounded-lg w-full shadow-md text-lg" onChange={e => setNewEntry(e.target.value)} value={newEntry} />
-						<div className="button" onClick={addEntry}>Create Entry</div>
+						<button className="mt-5 text-dark mb-4 text-lg font-bold p-2 bg-[#ffffff] border-purple-600 rounded-md shadow-md" onClick={handleCreateEntry}> Create Entry</button>
+            <Audio/>
 					</div>
 				</div>
 			) : null }
@@ -96,12 +104,12 @@ const EntryList = () => {
 };
 
 
-const Entry = ({entry}) => {  
+const Entry = ({entry, entries, setEntries}) => {  
 
     const {entryId, setEntryId} = useEntryId();
     const { getAccessTokenSilently} = useAuth0();
     const { userId, setUserId } = useContext(UserIdContext);
-    const [entries, setEntries] = useState([]);
+    const {selectedentryId, setSelectedentryId} = useSelectedentryId();
 
     const deleteEntry =async() =>{
         try {
@@ -131,11 +139,16 @@ const Entry = ({entry}) => {
     const handleDeleteEntry =(e)=>{
         e.preventDefault();
         deleteEntry();
-        setEntries(entries => entries.filter(entry => entry._id ==! entryId))
+        setEntries(entries => entries.filter(entry => entry._id !== entryId))
     }
 
+    const handleDivClick = (e) =>{
+      e.preventDefault();
+      setEntryId(entry._id);
+      setSelectedentryId(entry._id);
+    }
     return (
-        <div className="flex flex-col border border-yellow-400 gap-y-3 h-20 rounded-xl  mb-4 px-4 py-2 bg-[#faefb6] hover:selection:backdrop: " onClick={setEntryId(entry._id)}>
+        <div className="flex flex-col border border-yellow-400 gap-y-3 h-20 rounded-xl  mb-4 px-4 py-2 bg-[#faefb6] shadow-lg  hover:bg-[#f9e373] " onClick={handleDivClick}>
             {console.log('Entry id', entryId)}
             <div className="flex flex-row  justify-between font-bold  text-sm">
                <div >{entry.title}</div>
@@ -155,7 +168,7 @@ const Entry = ({entry}) => {
             </div>
             <div>
             <button className="text-xs p-0.5 border bg-[#fbe98f] border-yellow-400 rounded-md" >✏️</button>
-            <button className="text-xs p-0.5 border bg-[#fbe98f] border-yellow-400 rounded-md" onClick={handleDeleteEntry}>🗑️</button>
+            <button className="text-xs p-0.5 border bg-[#fbe98f] border-yellow-400 rounded-md" onClick={handleDeleteEntry}>🗑</button>
             </div>
             
             </div> 

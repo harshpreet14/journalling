@@ -11,7 +11,7 @@ const aiInsightsSchema = new mongoose.Schema({
     },
     timestamp: {
         type: Date,
-        required: true,
+        required: true
     }
 });
 

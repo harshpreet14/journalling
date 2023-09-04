@@ -1,7 +1,8 @@
 // UserIdContext.js
 import { createContext, useContext, useState } from 'react';
+import PropTypes from 'prop-types';
 
-const UserIdContext = createContext();
+export const UserIdContext = createContext();
 
 export const UserIdProvider = ({ children }) => {
   const [userId, setUserId] = useState(null);
@@ -15,4 +16,8 @@ export const UserIdProvider = ({ children }) => {
 
 export const useUserId = () => {
   return useContext(UserIdContext);
+};
+
+UserIdProvider.propTypes = {
+  children: PropTypes.node.isRequired, 
 };

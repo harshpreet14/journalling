@@ -3,6 +3,6 @@ import Hero from "./Hero";
 import Audio from './Audio';
 import Transcript from './Transcript';
 import { UserIdProvider } from './UserIdContext';
+import { EntryIdProvider } from "./EntryIdContext";
 
-
-export {Navbar, Hero, Audio, Transcript, UserIdProvider}
+export {Navbar, Hero, Audio, Transcript, UserIdProvider, EntryIdProvider}

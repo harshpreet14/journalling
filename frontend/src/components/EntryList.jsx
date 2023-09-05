@@ -26,7 +26,7 @@ const EntryList = () => {
             const response = await axios.post(
               API_BASE + '/users/'+ userId + '/entries',
               {
-                transcript:"hi"
+                transcript:"This entry is to check!"
               },
               {
                 headers: {
@@ -70,12 +70,36 @@ const EntryList = () => {
         getEntries(userId);
       }, [userId]);
 
-      const handleCreateEntry =(e)=>{
-        e.preventDefault();
-        addEntry();
-        setNewEntry(newEntry)
-        setEntries(...entries,newEntry)
-    }
+      const handleCreateEntry =async(e)=>{
+          e.preventDefault();
+          try {
+            const token = await getAccessTokenSilently();
+            console.log('Token:', token);
+            const response = await axios.post(
+              API_BASE + '/users/' + userId + '/entries',
+              {
+                transcript: 'I feel so happy today! I would be interviwing for MLH', // Use the new entry text
+              },
+              {
+                headers: {
+                  'Authorization': `Bearer ${token}`,
+                  'Content-Type': 'application/json',
+                },
+              }
+            );
+            console.log('Response:', response);
+            const newEntryData = response.data.data.entry; // Get the newly created entry
+        
+            // Update the entries state with the new entry
+            setEntries((entries) => [ ...entries, newEntryData]);
+        
+            // Close the popup
+            setPopupActive(false);
+          } catch (error) {
+            console.error('Error:', error);
+          }
+        };
+      
 
     return (
         <>
@@ -94,7 +118,7 @@ const EntryList = () => {
 					<div className="bg-[#efecec] h-3/6 w-2/6 p-5 border border-purple-600 rounded-lg justify-center">
 						<h3 className="text-dark mb-4 text-lg font-bold">Record your journal!</h3>
 						<input type="text" className="appearance-none outline-none border-none bg-white p-4 rounded-lg w-full shadow-md text-lg" onChange={e => setNewEntry(e.target.value)} value={newEntry} />
-						<button className="mt-5 text-dark mb-4 text-lg font-bold p-2 bg-[#ffffff] border-purple-600 rounded-md shadow-md" onClick={handleCreateEntry}> Create Entry</button>
+						<button className="mt-5 text-dark mb-4 text-lg font-bold p-2 bg-[#ffffff] border-purple-600 rounded-md shadow-md hover:bg-[#706f6f]" onClick={handleCreateEntry}> Create Entry</button>
             <Audio/>
 					</div>
 				</div>

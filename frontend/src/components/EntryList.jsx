@@ -78,7 +78,7 @@ const EntryList = () => {
             const response = await axios.post(
               API_BASE + '/users/' + userId + '/entries',
               {
-                transcript: 'I feel so happy today! I would be interviwing for MLH', // Use the new entry text
+                transcript: 'I feel so happy today!', // Use the new entry text
               },
               {
                 headers: {

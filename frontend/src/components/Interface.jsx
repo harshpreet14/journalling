@@ -57,8 +57,8 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className="flex flex-row gap-3 p-4px bg-[#ffffff]">
-        <div className="rounded-tr-3xl  rounded-br-3xl w-4/12  border border-yellow-600 bg-[#ffffff]">
+      <div className="flex flex-row gap-5 p-4px bg-[#ffffff]">
+        <div className="rounded-tr-3xl  rounded-br-3xl w-4/12  border-2 border-yellow-500 bg-[#ffffff]">
           <div className="flex flex-col m-3 h-5/6 mt-6  mb-10 rounded-tr-3xl rounded-br-3xl p-3 overflow-hidden">
             <EntryList/>
           </div>

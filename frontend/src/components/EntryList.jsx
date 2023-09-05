@@ -7,7 +7,7 @@ import axios from "axios";
 import { useState, useEffect, useContext } from "react";
 import Audio from "./Audio";
 const API_BASE = "http://127.0.01:3000/api/journal-ease"
-
+import { useScript } from "./ScriptContext";
 
 const EntryList = () => {
 
@@ -16,33 +16,9 @@ const EntryList = () => {
     const [entries, setEntries] = useState([]);
     const [popupActive, setPopupActive] = useState(false);
     const {newEntry, setNewEntry} = useState("")
+    const {script, setScript} = useScript();
+
     
-
-    const addEntry = async () => {
-        console.log('Adding entry...');
-          try {
-            const token = await getAccessTokenSilently();
-            console.log('Token:', token);
-            const response = await axios.post(
-              API_BASE + '/users/'+ userId + '/entries',
-              {
-                transcript:"This entry is to check!"
-              },
-              {
-                headers: {
-                  'Authorization': `Bearer ${token}`,
-                  'Content-Type': 'application/json',
-                },
-              }
-            );
-            console.log('Response:', response);
-            const newEntry =  response.data.data.entries;
-            console.log(newEntry);
-            } catch (error) {
-            console.error('Error:', error);
-          }
-      };
-
       const getEntries = async(userId) =>{
           try {
             const token = await getAccessTokenSilently();
@@ -78,7 +54,7 @@ const EntryList = () => {
             const response = await axios.post(
               API_BASE + '/users/' + userId + '/entries',
               {
-                transcript: 'I feel so happy today!', // Use the new entry text
+                transcript: script, // Use the new entry text
               },
               {
                 headers: {
@@ -104,10 +80,15 @@ const EntryList = () => {
     return (
         <>
         <div className='flex flex-row justify-between '>
-        <div className='text-xl mb-4 font-bold text-start'>Your journals</div>
+        <div className='text-xl mb-4 font-bold text-start p-2 shadow-lg'>Your journals ✍️</div>
+        <div> </div>
+        <div></div>
         <Logout/>  
         </div>
+        <div className="overflow-y-auto scrollbar-thin scrollbar-thumb-yellow-100 scrollbar-track-transparent">
         {entries.map((entry) => (<Entry entry={entry} key={entry._id} entries={entries} setEntries={setEntries}/>))}
+        </div>
+        
         <div>
         <button className='text-sm p-0.5 border bg-[#fbe98f] border-yellow-400 rounded-md justify-end cursor-pointer  hover:bg-[#f9e373]' onClick={() => setPopupActive(true)}>➕</button>
         </div>
@@ -117,8 +98,8 @@ const EntryList = () => {
 					<div className="absolute top-16 right-16 w-20 h-20 text-2xl text-dark cursor-pointer" onClick={() => setPopupActive(false)}>❌</div>
 					<div className="bg-[#efecec] h-3/6 w-2/6 p-5 border border-purple-600 rounded-lg justify-center">
 						<h3 className="text-dark mb-4 text-lg font-bold">Record your journal!</h3>
-						<input type="text" className="appearance-none outline-none border-none bg-white p-4 rounded-lg w-full shadow-md text-lg" onChange={e => setNewEntry(e.target.value)} value={newEntry} />
-						<button className="mt-5 text-dark mb-4 text-lg font-bold p-2 bg-[#ffffff] border-purple-600 rounded-md shadow-md hover:bg-[#706f6f]" onClick={handleCreateEntry}> Create Entry</button>
+						<div type="text" className="  bg-white p-4 rounded-lg w-full shadow-md text-lg overflow-y-auto ">{script}</div>
+						<button className="mt-5 text-dark mb-4 text-lg font-bold p-2 bg-[#ffffff] border-purple-600 rounded-md shadow-md hover:bg-[#706f6f]" onClick={handleCreateEntry}> Add Journal</button>
             <Audio/>
 					</div>
 				</div>
@@ -134,6 +115,7 @@ const Entry = ({entry, entries, setEntries}) => {
     const { getAccessTokenSilently} = useAuth0();
     const { userId, setUserId } = useContext(UserIdContext);
     const {selectedentryId, setSelectedentryId} = useSelectedentryId();
+    
 
     const deleteEntry =async() =>{
         try {

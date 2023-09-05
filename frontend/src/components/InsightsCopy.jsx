@@ -7,7 +7,7 @@ const API_BASE = "http://127.0.01:3000/api/journal-ease"
 
 
 const Analysis = () => {
-  const[analysis, setAnalysis] = useState("CLICK ON ANY ENTRY TO VIEW ANALYSIS👆");
+  const[analysis, setAnalysis] = useState("Here is your analysis");
   const {getAccessTokenSilently} = useAuth0();
   const {userId} = useContext(UserIdContext);
   const {selectedentryId, setSelectedentryId} = useSelectedentryId();
@@ -40,10 +40,10 @@ const Analysis = () => {
   }, [selectedentryId]);
 
     return (
-      <div className="min-h-screen rounded-tl-3xl rounded-bl-3xl w-4/12  border-2 border-yellow-500 bg-[#ffffff]">
-        <div className="flex flex-col m-3 h-5/6 mt-6 mb-10 rounded-3xl p-3 overflow-hidden">
-          <p className="text-xl mb-4 font-bold shadow-lg p-2">AI Insights 🤖</p>
-            <div className="text-sm p-5 border border-yellow-400 h-full rounded-xl bg-[#faefb6] shadow-lg  hover:bg-[#f8e99e] overflow-y-auto scrollbar-thin scrollbar-thumb-yellow-100 scrollbar-track-transparent">
+      <div className="min-h-screen rounded-tl-3xl rounded-bl-3xl w-4/12  border border-yellow-600 bg-[#ffffff]">
+        <div className="flex flex-col m-3 h-5/6 mt-6 mb-10 rounded-3xl  p-3 overflow-hidden">
+          <p className="text-xl mb-4 font-bold ">AI Insights</p>
+            <div className="text-sm p-2 border border-yellow-400 h-full rounded-xl bg-[#faefb6] shadow-lg  hover:bg-[#f8e99e] ">
              {analysis}
             <div/>
         </div>

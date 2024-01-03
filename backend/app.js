@@ -12,7 +12,8 @@ const jwtCheck = auth({
     audience: process.env.AUDIENCE,
     issuerBaseURL: process.env.ISSUER,
     tokenSigningAlg: process.env.ALGO
-});
+})
+
 
 
 app.use(cors());

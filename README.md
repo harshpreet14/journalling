@@ -15,7 +15,7 @@ Currently, I am working on AI integration, to perform sentiment analysis on the 
 
 ## `Features`
 
-1. **Voice Notes Recording**: Users can effortlessly record voice notes throughout the day, capturing their thoughts and emotions in real-time.
+1. **Voice Notes Recording**: Users can effortlessly record voice notes throughout the day, capturing their thoughts real-time.
 
 2. **OpenAI Whisper Integration**: To enhance the user experience, the 'Journaling App' leverages OpenAI's  Whisper model for speech-to-text transcription. This empowers users to effortlessly convert their voice notes into text, making it easy to review and analyze their daily entries.
 

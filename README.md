@@ -1,5 +1,5 @@
 # 📌`Journaling App`
-I have witnessed the struggles of friends, family, and even myself when it comes to mental health. Many turned to therapy, and one preliminary method that most therapists recommend is  journaling. However, traditional journaling has its limitations, which became apparent to me and those close to me.
+I have witnessed the struggles of friends, family, and even myself when it comes to mental health. Many turned to therapy, and one preliminary method that most therapists recommend is  journaling. However, traditional journaling has its limitations, which became apparent to me and those close.
 
 The first challenge we encountered with traditional journaling is the difficulty of capturing our thoughts and emotions in real-time. The speed at which our minds generate thoughts surpasses our ability to write them down. It's frustrating when we can't fully express ourselves and capture the essence of our experiences.
 Secondly, traditional journaling often requires dedicated time set aside for writing, which means important triggers and emotions experienced throughout the day may be missed or forgotten.
